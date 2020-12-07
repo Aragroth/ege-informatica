@@ -10,7 +10,8 @@ def factorize(n):
 	Включая единицу и не включая само число
 	"""
 	factor = []
-	for delitel in range(1, n):
+	# в данной задаче само число тоже считается делителем (!)
+	for delitel in range(1, n + 1):
 		if n % delitel == 0:
 			factor.append(delitel)
 
@@ -18,11 +19,13 @@ def factorize(n):
 
 max_len = 0
 num = 0
-for i in range(286564, 287270):
+for i in range(286564, 287270 + 1):
 	data = factorize(i)
 	if len(data) >= max_len:
 		max_len = len(data)
 		data.sort()
-		num = data[-1]
+		# берём предспоследнее число, потому что последний делитель равен самому числу
+		# а по условию нам нужен наибольший делитель, отличный от самого числа
+		num = data[-2]
 
 print(max_len, num)
