@@ -17,6 +17,7 @@ def game(f, s=7, hod=1):
     
     return all(get(f, s, hod + 1))
 
+
 for i in range(1, 69 + 1):
     if game(i):
         print(i)
